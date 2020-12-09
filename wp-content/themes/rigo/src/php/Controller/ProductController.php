@@ -10,14 +10,7 @@ class ProductController{
         $id = (string) $request['id'];
         return Product::get($id);
     }
-    
-    // public function getAllProducts(WP_REST_Request $request){
-        
-    //     //get all posts
-    //     $query = Product::all();
-    //     return $query;//Always return an Array type
-    // }
-      
+
     public function createProduct(WP_REST_Request $request){
 
         $body = json_decode($request->get_body());
@@ -31,6 +24,7 @@ class ProductController{
         update_field('picture', $body->picture, $id);
         update_field('short_description', $body->short_description, $id);
         update_field('long_description', $body->long_description, $id);
+        update_field('season', $body->season, $id);
         return $id;
     }
 
@@ -58,7 +52,8 @@ class ProductController{
                 "price" => $product->price,
                 "picture" => $product->picture,
                 "short_description" => $product->short_description,
-                "long_description" => $product->long_description                
+                "long_description" => $product->long_description,                
+                "season" => $product->season                
             );
         $data = Array(
             "products" => $products
