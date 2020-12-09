@@ -8,5 +8,8 @@ $typeManager = new \WPAS\Types\PostTypesManager([ 'namespace' => 'Rigo\\Types\\'
 /**
  * Then, start adding your types one by one.
 */
-$typeManager->newType(['type' => 'course', 'class' => 'Course'])->register();
-
+// $typeManager->newType(['type' => 'course', 'class' => 'Course'])->register();
+// $typeManager->newType(['type' => 'phone', 'class' => 'Phone'])->register();
+// $typeManager->newType(['type' => 'event', 'class' => 'Event'])->register();
+$typeManager->newType(['type' => 'userLogIn', 'class' => 'UserLogIn'])->register();
+$typeManager->newType(['type' => 'product', 'class' => 'Product'])->register();

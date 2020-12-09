@@ -14,7 +14,7 @@ class SampleController{
     
     public function getSingleCourse(WP_REST_Request $request){
         $id = (string) $request['id'];
-        return Course::get($id);
+        //return Course::get($id);
     }
     
     public function getAllCourse(WP_REST_Request $request){
