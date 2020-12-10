@@ -8,7 +8,17 @@ class ProductController{
     
     public function getSingleProduct(WP_REST_Request $request){
         $id = (string) $request['id'];
-        return Product::get($id);
+            $product = Product::get($id);
+        $product = array(
+               "ID" => $product->ID,
+                "name" => $product->name,
+                "price" => $product->price,
+                "picture" => $product->picture,
+                "short_description" => $product->short_description,
+                "long_description" => $product->long_description,                
+                "season" => $product->season                
+            );
+        return $product;
     }
 
     public function createProduct(WP_REST_Request $request){
@@ -47,7 +57,6 @@ class ProductController{
         foreach($query->posts as $product){
             $products[] = array(
                 "ID" => $product->ID,
-                // "post_title" => $product->name,
                 "name" => $product->name,
                 "price" => $product->price,
                 "picture" => $product->picture,
